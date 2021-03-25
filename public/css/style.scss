@@ -2004,12 +2004,12 @@ Main Banner Area CSS
     &.active {
         .home-content {
             img {
-                animation: {
-                    duration: 1s;
-                    fill-mode: both;
-                    name: fadeInLeft;
-                    delay: 0.3s;
-                };
+                // animation: {
+                //     duration: 1s;
+                //     fill-mode: both;
+                //     name: fadeInLeft;
+                //     delay: 0.3s;
+                // };
             }
             .sub-title {
                 animation: {

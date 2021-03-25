@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { OffCanvas, OffCanvasBody, OffCanvasMenu } from "react-offcanvas";
 import Link from '../../utils/ActiveLink';
-import logoWhite from "./logo-white.png";
-import logo from "./logo.png";
+// import logoWhite from "./logo-white.png";
+// import logo from "./logo.png";
 import MenuItems from "./MenuItems";
-
+import Image from 'next/image'
 
 const NavbarStyleFive = () => {
     const [menu, setMenu] = React.useState(false)
@@ -50,7 +50,14 @@ const NavbarStyleFive = () => {
                         <nav className="navbar navbar-expand-lg navbar-light">
                             <Link href="/">
                                 <a className="navbar-brand">
-                                    <img src={logo} alt="Late Night Babes - Sydney escorts" />
+                                <Image
+            className="about-img left-img"
+            src="/images/logo.png"
+            alt="High class Sydney escort agency"
+            width="133"
+            height="40"
+          />
+                                    {/* <img src={logo} alt="Late Night Babes - Sydney escorts" /> */}
                                 </a>
                             </Link>
 
@@ -95,7 +102,14 @@ const NavbarStyleFive = () => {
         <OffCanvasMenu 
        className="mobile-menu"
         >
-          <img src={logoWhite} alt='Escorts in Sydney' style={{height:40}}/>
+                        <Image
+            className="about-img left-img"
+            src="/images/logo-white.png"
+            alt="High class Sydney escort agency"
+            height="40"
+            width="133"
+          />
+          {/* <img src={logoWhite} alt='Escorts in Sydney' style={{height:40}}/> */}
 <MenuItems />
 
 

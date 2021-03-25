@@ -79,13 +79,31 @@ Even if you can't find a review for one of the escorts on our site - Don't let t
   );
 };
 
-About.getInitialProps = async (ctx) => {
-
+export async function getStaticProps(ctx) {
   const services = await getAllServices();
   const locs = await getLocals();
 
+  // if (!data) {
+  //   return {
+  //     notFound: true,
+  //   }
+  // }
 
-    return {services: services, locs:locs };
-  };
+  return {
+    props: { 
+        services,
+        locs
+    }, 
+  }
+}
+
+// About.getInitialProps = async (ctx) => {
+
+//   const services = await getAllServices();
+//   const locs = await getLocals();
+
+
+//     return {services: services, locs:locs };
+//   };
 
 export default About;

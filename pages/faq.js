@@ -138,14 +138,32 @@ const Faq = (props) => {
   );
 };
 
-Faq.getInitialProps = async (ctx) => {
-
+export async function getStaticProps(ctx) {
   const services = await getAllServices();
-
   const locs = await getLocals();
 
+  // if (!data) {
+  //   return {
+  //     notFound: true,
+  //   }
+  // }
 
-    return {services: services, locs: locs };
-  };
+  return {
+    props: { 
+        services,
+        locs
+    }, 
+  }
+}
+
+// Faq.getInitialProps = async (ctx) => {
+
+//   const services = await getAllServices();
+
+//   const locs = await getLocals();
+
+
+//     return {services: services, locs: locs };
+//   };
 
 export default Faq

@@ -1,19 +1,24 @@
 import React from "react";
-import Model1Img from "../../components/Home/model1.webp";
-import Model2Img from "../../components/Home/model2.webp";
-import Model3Img from "../../components/Home/model3.webp";
-import Model4Img from "../../components/Home/about.webp";
+// import Model1Img from "../../components/Home/model1.webp";
+// import Model2Img from "../../components/Home/model2.webp";
+// import Model3Img from "../../components/Home/model3.webp";
+// import Model4Img from "../../components/Home/about.webp";
+import Image from 'next/image'
 
 const WhatWeDo = () => {
   return (
     <div className="what-we-do-area ptb-100">
       <div className="container-fluid">
         <div className="what-we-do-content">
-          <img
-            className="about-img right-img"
-            src={Model1Img}
+          <div className="about-img right-img">
+          <Image
+                       layout="responsive"
+                       width="665"
+                       height="940"
+            src="/images/model1.webp"
             alt="High class Sydney escort agency"
           />
+          </div>
           <span className="sub-title">What We Do</span>
           <h2 className="pb-30">The best high class escorts in Sydney</h2>
           <p>
@@ -50,11 +55,15 @@ const WhatWeDo = () => {
             Prices from $450 per hour all inclusive.
           </p>
 
-          <img
-            className="about-img left-img"
-            src={Model2Img}
+<div className="about-img left-img">
+          <Image
+            src="/images/model2.webp"
             alt="High class Sydney escort agency"
+            layout="responsive"
+            width="542"
+            height="594"
           />
+          </div>
 
           <h2 className="pb-30 pt-30">About Late Night Babes Sydney escorts</h2>
           <p>
@@ -109,11 +118,23 @@ const WhatWeDo = () => {
             make a booking.
           </p>
 
-          <img
+          <div className="about-img right-img">
+          <Image
+                       layout="responsive"
+                       width="902"
+                       height="1107"
+            src="/images/model3.webp"
+            alt="High class Sydney escort agency"
+          />
+          </div>
+
+
+
+          {/* <img
             className="about-img right-img"
             src={Model3Img}
             alt="High class Sydney escort agency"
-          />
+          /> */}
 
           <h2 className="pt-30 pb-30">Our Sydney escort agency</h2>
           <p>
@@ -165,11 +186,22 @@ const WhatWeDo = () => {
             provide direct access to the majority of Sydney CBD.
           </p>
 
-          <img
+          <div className="about-img left-img">
+          <Image
+            src="/images/about.webp"
+            alt="High class Sydney escort agency"
+            layout="responsive"
+            width="600"
+            height="611"
+          />
+          </div>
+
+
+          {/* <img
             className="about-img left-img"
             src={Model4Img}
             alt="High class Sydney escort agency"
-          />
+          /> */}
 
 <h2 className="pt-30 pb-30">Sydney Escort pricing</h2>
             <p>

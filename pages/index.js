@@ -67,12 +67,33 @@ const Index = (props) => {
   );
 };
 
-Index.getInitialProps = async (ctx) => {
-  const services = await getAllServices();
-  const escorts = await getAllEscorts();
-  const locs = await getLocals();
+export async function getStaticProps(ctx) {
+    const services = await getAllServices();
+    const escorts = await getAllEscorts();
+    const locs = await getLocals();
+  
+    // if (!data) {
+    //   return {
+    //     notFound: true,
+    //   }
+    // }
+  
+    return {
+      props: { 
+          services,
+          escorts,
+          locs
+      }, 
+    }
+  }
 
-  return { escorts: escorts, services: services, locs: locs };
-};
+
+// Index.getInitialProps = async (ctx) => {
+//   const services = await getAllServices();
+//   const escorts = await getAllEscorts();
+//   const locs = await getLocals();
+
+//   return { escorts: escorts, services: services, locs: locs };
+// };
 
 export default Index;

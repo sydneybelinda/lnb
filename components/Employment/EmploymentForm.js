@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import baseUrl from "../../utils/baseUrl";
-import Model3Img from "../../components/Home/model3.webp";
+import Image from "next/image"
 import Config from "../../config";
 import config from "../../config";
 
@@ -407,7 +407,13 @@ const EmploymentForm = () => {
               </form>
             </div>
             <div className="contact-image" data-tilt>
-              <img src={Model3Img} alt="Contact Late Night Babes Sydney" />
+            <Image
+                layout="responsive"
+                width="902"
+                height="1107"
+                src="/images/model3.webp"
+                alt="Employment with Late Night Babes Sydney"
+              />
             </div>
           </div>
         </div>

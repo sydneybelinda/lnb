@@ -72,16 +72,36 @@ const num = getToday().number
     )
 }
 
-
-Availability.getInitialProps = async (ctx) => {
-
-  
+export async function getStaticProps(ctx) {
     const escorts = await getAllEscorts();
     const services = await getAllServices();
     const locs = await getLocals();
+  
+    // if (!data) {
+    //   return {
+    //     notFound: true,
+    //   }
+    // }
+  
+    return {
+      props: { 
+          services,
+          locs,
+          escorts
+      }, 
+    }
+  }
 
-    return { escorts: escorts, services: services, locs:locs };
-  };
+
+// Availability.getInitialProps = async (ctx) => {
+
+  
+//     const escorts = await getAllEscorts();
+//     const services = await getAllServices();
+//     const locs = await getLocals();
+
+//     return { escorts: escorts, services: services, locs:locs };
+//   };
 
 export default Availability;
 

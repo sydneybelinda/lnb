@@ -12,7 +12,7 @@ const Meta = {
   page: "/abbreviations",
 };
 
-const About = (props) => {
+const Abbreviations = (props) => {
   return (
     <React.Fragment>
       <Head Meta={Meta} />
@@ -91,12 +91,30 @@ const About = (props) => {
   );
 };
 
-About.getInitialProps = async (ctx) => {
-
+export async function getStaticProps(ctx) {
   const services = await getAllServices();
   const locs = await getLocals();
 
-    return {services: services, locs:locs };
-  };
+  // if (!data) {
+  //   return {
+  //     notFound: true,
+  //   }
+  // }
 
-export default About;
+  return {
+    props: { 
+        services,
+        locs
+    }, 
+  }
+}
+
+// About.getInitialProps = async (ctx) => {
+
+//   const services = await getAllServices();
+//   const locs = await getLocals();
+
+//     return {services: services, locs:locs };
+//   };
+
+export default Abbreviations;

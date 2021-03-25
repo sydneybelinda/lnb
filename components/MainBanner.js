@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 const OwlCarousel = dynamic(import("react-owl-carousel3"));
+import Image from "next/image";
 
 const options = {
   loop: true,
@@ -34,79 +35,30 @@ const MainBanner = () => {
         >
           <div className="banner-section">
             <div className="home-content">
-              <div
-                className="home-banner"
-                style={{
-                  backgroundImage: `url('/images/hero-image-1.webp')`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                }}
-              ></div>
-              {/* <img src="/images/banner-img6.png" alt="image" /> */}
-              {/* <span className="sub-title">Digital Marketing</span>
-                            <h1>Boots Your Website Traffic</h1>
-                            <p>Get all kinds of hi-tech decesion making consulting services using Artificial Intelligence and Machine Learning from one umbrella.</p>
+              <div className="home-banner">
+                <Image
+                  alt="Late Night Babes Sydney Escorts"
+                  src="/images/hero-image-1.webp"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={70}
+                />
+              </div>
 
-                            <Link href="/about-us-1">
-                                <a className="default-btn">Learn More</a>
-                            </Link> */}
-            </div>
-
-            <div className="shape2">
-              <img src="/images/shape/shape2.png" alt="image" />
-            </div>
-            <div className="shape3">
-              <img src="/images/shape/shape3.png" alt="image" />
-            </div>
-            <div className="shape5">
-              <img src="/images/shape/shape5.png" alt="image" />
-            </div>
-            <div className="shape6">
-              <img src="/images/shape/shape6.png" alt="image" />
-            </div>
-            <div className="shape7">
-              <img src="/images/shape/shape7.png" alt="image" />
-            </div>
-            <div className="shape13">
-              <img src="/images/shape/shape13.png" alt="image" />
-            </div>
-            <div className="shape8">
-              <img src="/images/shape/shape8.png" alt="image" />
             </div>
           </div>
 
           <div className="banner-section">
             <div className="home-content">
-              <div
-                className="home-banner"
-                style={{
-                  backgroundImage: `url('/images/hero.jpg')`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                }}
-              ></div>
-            </div>
-
-            <div className="shape2">
-              <img src="/images/shape/shape2.png" alt="image" />
-            </div>
-            <div className="shape3">
-              <img src="/images/shape/shape3.png" alt="image" />
-            </div>
-            <div className="shape5">
-              <img src="/images/shape/shape5.png" alt="image" />
-            </div>
-            <div className="shape6">
-              <img src="/images/shape/shape6.png" alt="image" />
-            </div>
-            <div className="shape7">
-              <img src="/images/shape/shape7.png" alt="image" />
-            </div>
-            <div className="shape13">
-              <img src="/images/shape/shape13.png" alt="image" />
-            </div>
-            <div className="shape8">
-              <img src="/images/shape/shape8.png" alt="image" />
+              <div className="home-banner">
+                <Image
+                  alt="Late Night Babes Sydney Escorts"
+                  src="/images/hero.jpg"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={70}
+                />
+              </div>
             </div>
           </div>
         </OwlCarousel>

@@ -6,7 +6,7 @@ import {getAllEscorts, getServicesSeo, getAllServices, getLocals} from "../../..
 import Footer from '../../../components/_App/Footer';
 import Head from '../../../components/_App/Head';
 import nl2br from 'react-nl2br'
-
+import Config from "../../../config"
 
 
 const Escorts = (props) => {
@@ -52,20 +52,53 @@ const Escorts = (props) => {
     )
 }
 
+export async function getStaticProps({ params }) {
+  
+    const cat = params.cat;
 
-Escorts.getInitialProps = async (ctx) => {
-    const { query } = ctx;
-    const cat = query.cat;
-
+  
+    
   const seo = await getServicesSeo(cat);
   
-    const escorts = await getAllEscorts();
-
-    const services = await getAllServices();
-    const locs = await getLocals();
+  const escorts = await getAllEscorts();
+  const services = await getAllServices();
+  const locs = await getLocals();
+  
+    if (!seo) {
+      return {
+        notFound: true,
+      }
+    }
+  
+    return {
+      props: { 
+          services,
+          locs,
+          escorts,
+          seo
+      }, 
+    }
+  }
+  
+  export async function getStaticPaths() {
    
-    return { escorts: escorts, seo: seo, services: services, locs:locs };
-  };
+    const res = await fetch(`${Config.api}/seoservices/get`);
+    const seo = await res.json()
+  
+    const paths = seo.map((s) => ({
+      params: { cat: s.keyindex },
+    }))
+
+    var pa = [] 
+    paths.map((p)=>{
+        p.params.cat ?
+        pa.push(p) : ''
+    })
+
+
+  
+    return { paths:pa, fallback: false }
+  }
 
 export default Escorts;
 

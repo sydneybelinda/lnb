@@ -44,12 +44,30 @@ const EscortJobs = (props) => {
     )
 }
 
-EscortJobs.getInitialProps = async (ctx) => {
-
+export async function getStaticProps(ctx) {
   const services = await getAllServices();
   const locs = await getLocals();
 
-    return {services: services, locs:locs };
-  };
+  // if (!data) {
+  //   return {
+  //     notFound: true,
+  //   }
+  // }
+
+  return {
+    props: { 
+        services,
+        locs
+    }, 
+  }
+}
+
+// EscortJobs.getInitialProps = async (ctx) => {
+
+//   const services = await getAllServices();
+//   const locs = await getLocals();
+
+//     return {services: services, locs:locs };
+//   };
 
 export default EscortJobs;

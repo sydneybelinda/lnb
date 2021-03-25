@@ -6,6 +6,7 @@ import {getAllEscorts, getEyesSeo, getAllServices, getLocals} from "../../../uti
 import Footer from '../../../components/_App/Footer';
 import Head from '../../../components/_App/Head';
 import nl2br from 'react-nl2br'
+import Config from "../../../config"
 
 
 
@@ -52,18 +53,45 @@ const Escorts = (props) => {
     )
 }
 
-
-Escorts.getInitialProps = async (ctx) => {
-    const { query } = ctx;
-    const cat = query.cat;
-
+export async function getStaticProps({ params }) {
+  
+    const cat= params.cat;
+  
+    
   const seo = await getEyesSeo(cat);
   
-    const escorts = await getAllEscorts();
-    const services = await getAllServices();
-    const locs = await getLocals();
+  const escorts = await getAllEscorts();
+  const services = await getAllServices();
+  const locs = await getLocals();
+  
+    if (!seo) {
+      return {
+        notFound: true,
+      }
+    }
+  
+    return {
+      props: { 
+          services,
+          locs,
+          escorts,
+          seo
+      }, 
+    }
+  }
+  
+  export async function getStaticPaths() {
    
-    return { escorts: escorts, seo: seo, services: services, locs:locs };
-  };
+    const res = await fetch(`${Config.api}/seoeyes/get`);
+    const seo = await res.json()
+  
+    const paths = seo.map((s) => ({
+      params: { cat: s.keyindex },
+    }))
+  
+    return { paths, fallback: false }
+  }
+
+
 
 export default Escorts;

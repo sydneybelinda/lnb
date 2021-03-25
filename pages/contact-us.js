@@ -89,12 +89,30 @@ const Contact = (props) => {
     )
 }
 
-Contact.getInitialProps = async (ctx) => {
-
+export async function getStaticProps(ctx) {
     const services = await getAllServices();
     const locs = await getLocals();
+  
+    // if (!data) {
+    //   return {
+    //     notFound: true,
+    //   }
+    // }
+  
+    return {
+      props: { 
+          services,
+          locs
+      }, 
+    }
+  }
 
-      return {services: services, locs:locs };
-    };
+// Contact.getInitialProps = async (ctx) => {
+
+//     const services = await getAllServices();
+//     const locs = await getLocals();
+
+//       return {services: services, locs:locs };
+//     };
 
 export default Contact;

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import AboutImg from "./about.webp";
+import Image from 'next/image';
+// import AboutImg from "./about.webp";
 
 const AboutSection = () => {
   return (
@@ -8,8 +9,17 @@ const AboutSection = () => {
       <div className="container-fluid">
         <div className="flex-box align-items-center">
           <div className="left">
-            <div className="project-start-image">
-              <img src={AboutImg} alt="High class Sydney escort agency" />
+            <div className="project-start-image about-img">
+           
+          <Image
+            src="/images/about.webp"
+            alt="High class Sydney escort agency"
+            layout="responsive"
+            width="600"
+            height="611"
+          />
+
+              {/* <img src={AboutImg} alt="High class Sydney escort agency" /> */}
             </div>
           </div>
 

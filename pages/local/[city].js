@@ -61,15 +61,38 @@ const Local = (props) => {
   );
 };
 
-Local.getInitialProps = async (ctx) => {
-  const { query } = ctx;
-  const city = query.city;
+export async function getStaticProps({ params }) {
+  
+  const city = params.city;
 
   const services = await getAllServices();
   const locs = await getLocals();
   const loc = await getLocal(city);
 
-    return {services: services, locs:locs, loc:loc};
-  };
+  if (!loc) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { 
+        services,
+        locs,
+        loc
+    }, 
+  }
+}
+
+export async function getStaticPaths() {
+  const locs = await getLocals();
+
+  const paths = locs.map((l) => ({
+    params: { city: l.loc },
+  }))
+
+  return { paths, fallback: false }
+}
+
 
 export default Local;
