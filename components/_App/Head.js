@@ -16,10 +16,7 @@ const Meta = (props) => {
       <meta name="twitter:card" content={m.description}></meta>
       <link rel="canonical" href={Config.url + m.page}></link>
 
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-4VPFX958JJ"
-      ></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56311709-1"></script>
 
       <script
         dangerouslySetInnerHTML={{
