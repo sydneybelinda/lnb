@@ -25,7 +25,7 @@ const Config =  {
         email: "info@lnbsydneyescorts.com.au",
         twitter: "https://twitter.com/lnbsydney",    
         url: "https://www.lnbsydneyescorts.com.au",
-        api: "https://www.lnbsydneyescorts.com.au/api"
+        api: "http://www.lnbsydneyescorts.com.au:2000/api"
       },
 
 
