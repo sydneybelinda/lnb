@@ -4773,6 +4773,10 @@ Portfolio Details Area CSS
   margin-bottom: 40px;
 }
 
+.portfolio-details-area .e-image img {
+  display: block !important;
+}
+
 .portfolio-details-image {
   position: relative;
   margin-bottom: 30px;
