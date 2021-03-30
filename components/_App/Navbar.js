@@ -4,7 +4,7 @@ import Link from "../../utils/ActiveLink";
 // import logoWhite from "./logo-white.png";
 // import logo from "./logo.png";
 import MenuItems from "./MenuItems";
-import Image from "next/image";
+// import Image from "next/image";
 
 const NavbarStyleFive = () => {
   const [menu, setMenu] = React.useState(false);
@@ -54,14 +54,14 @@ const NavbarStyleFive = () => {
             <nav className="navbar navbar-expand-lg navbar-light">
               <Link href="/">
                 <a className="navbar-brand">
-                  <Image
+                  {/* <Image
                     className="about-img left-img"
                     src="/images/logo.png"
                     alt="High class Sydney escort agency"
                     width="133"
                     height="40"
-                  />
-                  {/* <img src={logo} alt="Late Night Babes - Sydney escorts" /> */}
+                  /> */}
+                   <img src="/images/logo.png" alt="Late Night Babes - Sydney escorts" />
                 </a>
               </Link>
 
@@ -103,14 +103,14 @@ const NavbarStyleFive = () => {
             >
               <OffCanvasBody></OffCanvasBody>
               <OffCanvasMenu className="mobile-menu">
-                <Image
+                {/* <Image
                   className="about-img left-img"
                   src="/images/logo-white.png"
                   alt="High class Sydney escort agency"
                   height="40"
                   width="133"
-                />
-                {/* <img src={logoWhite} alt='Escorts in Sydney' style={{height:40}}/> */}
+                /> */}
+                <img src="/images/logo-white.png" alt='Escorts in Sydney' style={{height:40}}/>
                 <MenuItems />
 
                 <div className="option-item">

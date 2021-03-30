@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from 'next/image';
+// import Image from 'next/image';
 // import AboutImg from "./about.webp";
 
 const AboutSection = () => {
@@ -11,12 +11,16 @@ const AboutSection = () => {
           <div className="left">
             <div className="project-start-image about-img">
            
-          <Image
+          {/* <Image
             src="/images/about.webp"
             alt="High class Sydney escort agency"
             layout="responsive"
             width="600"
             height="611"
+          /> */}
+                    <img
+            src="/images/about.webp"
+            alt="High class Sydney escort agency"
           />
 
               {/* <img src={AboutImg} alt="High class Sydney escort agency" /> */}

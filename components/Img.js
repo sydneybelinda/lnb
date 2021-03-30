@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const Img = ({username, file}) => {
 
@@ -21,21 +21,21 @@ const Img = ({username, file}) => {
     }
   
     return (
-        <div className="e-image">
-                 <Image
+        <div className="e-image" style={back}>
+                 {/* <Image
         alt={file}
         src={src}
         onError={onErrorSrc}
         layout="fill"
         objectFit="cover"
         quality={75}
-      />
-        {/* <img
+      /> */}
+        <img
           src={src}
           onError={onErrorSrc}
           alt={file}
           style={{ display: "none" }}
-        /> */}
+        />
       </div>
     )
 

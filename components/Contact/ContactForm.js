@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import baseUrl from "../../utils/baseUrl";
-import Image from "next/image";
+// import Image from "next/image";
 
 const alertContent = () => {
   MySwal.fire({
@@ -68,10 +68,15 @@ const ContactForm = () => {
         <div className="row">
           <div className="col-lg-6 col-md-12">
             <div className="contact-image" data-tilt>
-              <Image
+              {/* <Image
                 layout="responsive"
                 width="902"
                 height="1107"
+                src="/images/model3.webp"
+                alt="High class Sydney escort agency"
+              /> */}
+
+<img
                 src="/images/model3.webp"
                 alt="High class Sydney escort agency"
               />

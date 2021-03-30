@@ -3,7 +3,7 @@ import React from "react";
 // import Model2Img from "../../components/Home/model2.webp";
 // import Model3Img from "../../components/Home/model3.webp";
 // import Model4Img from "../../components/Home/about.webp";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const WhatWeDo = () => {
   return (
@@ -11,10 +11,14 @@ const WhatWeDo = () => {
       <div className="container-fluid">
         <div className="what-we-do-content">
           <div className="about-img right-img">
-          <Image
+          {/* <Image
                        layout="responsive"
                        width="665"
                        height="940"
+            src="/images/model1.webp"
+            alt="High class Sydney escort agency"
+          /> */}
+           <img
             src="/images/model1.webp"
             alt="High class Sydney escort agency"
           />
@@ -56,12 +60,16 @@ const WhatWeDo = () => {
           </p>
 
 <div className="about-img left-img">
-          <Image
+          {/* <Image
             src="/images/model2.webp"
             alt="High class Sydney escort agency"
             layout="responsive"
             width="542"
             height="594"
+          /> */}
+                    <img
+            src="/images/model2.webp"
+            alt="High class Sydney escort agency"
           />
           </div>
 
@@ -119,10 +127,14 @@ const WhatWeDo = () => {
           </p>
 
           <div className="about-img right-img">
-          <Image
+          {/* <Image
                        layout="responsive"
                        width="902"
                        height="1107"
+            src="/images/model3.webp"
+            alt="High class Sydney escort agency"
+          /> */}
+                    <img
             src="/images/model3.webp"
             alt="High class Sydney escort agency"
           />
@@ -187,12 +199,17 @@ const WhatWeDo = () => {
           </p>
 
           <div className="about-img left-img">
-          <Image
+          {/* <Image
             src="/images/about.webp"
             alt="High class Sydney escort agency"
             layout="responsive"
             width="600"
             height="611"
+          /> */}
+                    <img
+            src="/images/about.webp"
+            alt="High class Sydney escort agency"
+
           />
           </div>
 
