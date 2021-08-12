@@ -11,6 +11,12 @@ export const getAllEscorts = async (ctx) => {
     return escorts;
   };
 
+  export const getAllLinks = async (ctx) => {
+    const res = await fetch(`${API}/link`);
+    let links = await res.json();
+    return links;
+  };
+
   export const getEscort = async (username) => {
     const res = await fetch(`${API}/escort/${username}`);
     let escort = await res.json();

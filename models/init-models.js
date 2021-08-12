@@ -50,6 +50,7 @@ var _seoorientation = require("./seoorientation");
 var _seoother = require("./seoother");
 var _seoservices = require("./seoservices");
 var _services = require("./services");
+var _links = require("./links");
 
 function initModels(sequelize) {
   var admire = _admire(sequelize, DataTypes);
@@ -81,6 +82,7 @@ function initModels(sequelize) {
   var seoother = _seoother(sequelize, DataTypes);
   var seoservices = _seoservices(sequelize, DataTypes);
   var services = _services(sequelize, DataTypes);
+  var links = _links(sequelize, DataTypes);
 
   fos_group.belongsToMany(fos_user, { as: 'users', through: fos_user_user_group, foreignKey: "group_id", otherKey: "user_id" });
   fos_user.belongsToMany(fos_group, { as: 'groups', through: fos_user_user_group, foreignKey: "user_id", otherKey: "group_id" });
@@ -119,6 +121,7 @@ function initModels(sequelize) {
     seoother,
     seoservices,
     services,
+    links
   };
 }
 

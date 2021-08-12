@@ -10148,4 +10148,22 @@ Sidebar Modal CSS
   visibility: visible;
   margin-top: 0;
 }
+
+.spinner-wrap {
+  float: right;
+}
+
+.images {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.imf {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.links {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */

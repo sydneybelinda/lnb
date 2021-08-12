@@ -28,12 +28,17 @@ export default async (req,res) => {
 
 
   const filename = data.fields.filename.trim() + "." + ext;
+  const folder = data.fields.folder.trim()
 
+  var pa = `static/userdata/employment/${folder}`;
 
+  if (!fs.existsSync(pa)){
+    fs.mkdirSync(pa);
+}
 
 
   const rename = await new Promise((resolve, reject) => {
-    fs.rename(uploadedFile, `static/userdata/employment/${filename}`, function(err) {
+    fs.rename(uploadedFile, `static/userdata/employment/${folder}/${filename}`, function(err) {
             if (err) {
               return (err);
             }
@@ -44,6 +49,8 @@ export default async (req,res) => {
 
 
   //return the data back or just do whatever you want with it
-  res.status(200).send(`/userdata/employment/${filename}`);
+  res.status(200).json({
+    status: 'ok'
+  })
 }
 

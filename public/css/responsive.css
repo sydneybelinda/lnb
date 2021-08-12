@@ -491,6 +491,7 @@
   }
   .about-img {
     margin-bottom: 35px;
+    width: 100%;
   }
   .what-we-do-content {
     text-align: left;
@@ -2223,7 +2224,6 @@
   }
   .about-img {
     margin-bottom: 35px;
-    
   }
   .about-content {
     text-align: center;

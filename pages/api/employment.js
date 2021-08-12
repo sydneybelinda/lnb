@@ -7,7 +7,8 @@ import * as apikey from "../../apikey"
 const transporter = {
     auth: {
         // Use SendGrid API key 
-        api_key: apikey
+      //  api_key: apikey
+      api_key: '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'
     }
 }
 
@@ -20,19 +21,26 @@ export default async (req, res) => {
  
     let images = []
 
+    let im = '';
+
     files.map((f,i)=>{
         const url = Config.url + f
     images.push(<img src={f} key={i} alt={f} />)
+
+    im += `<a href="${url}">${url}</a><br/>`;
+
+
+   
 })
 
-
+console.log(images)
    
 
     const txt = nl2br(text)
     //console.log(txt);
 
     const data = {
-        to: 'info@lnbsydneyescorts.com.au',
+        to: 'lnbsydney@gmail.com',
         from: 'employment@lnbsydneyescorts.com.au',
         subject: `Late Night Babes Employment Form - From: ${name}`,
         text: text,
@@ -44,10 +52,7 @@ export default async (req, res) => {
             <b>Dress Size:</b> ${dressSize} <br /> 
             <b>Location:</b> ${location} <br /> <br />
             <b><u>Message:</u></b><br/> ${text} <br /><br />
-            <div>
-            ${files.map((f,i)=>{
-                <img src={f} key={i} alt={f} />
-        })}</div>
+            <b><u>Files:</u></b><br/> ${im} <br /><br />
         ` 
     };
 

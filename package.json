@@ -17,6 +17,7 @@
         "formidable": "^1.2.2",
         "fs": "^0.0.1-security",
         "isomorphic-unfetch": "^3.1.0",
+        "micro": "^9.3.4",
         "mysql2": "^2.2.5",
         "next": "^10.0.9",
         "next-images": "^1.7.0",

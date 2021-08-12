@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button, Spinner}  from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -9,6 +8,7 @@ import baseUrl from "../../utils/baseUrl";
 // import Image from "next/image";
 import Config from "../../config";
 import config from "../../config";
+import FileUpload from "../FileUpload";
 
 const alertContent = () => {
   MySwal.fire({
@@ -34,6 +34,8 @@ function generateString(length) {
   return result;
 }
 
+const folder = generateString("8").trim();
+
 // Form initial state
 const INITIAL_STATE = {
   name: "",
@@ -47,13 +49,10 @@ const INITIAL_STATE = {
   filePrev: "",
 };
 
-
-
 const EmploymentForm = () => {
   const [contact, setContact] = useState(INITIAL_STATE);
   const { register, handleSubmit, errors } = useForm();
-  const [uploading, setUploading] = useState(false);
-  const [imageCheck, setImageCheck] = useState(false);
+  const [fls, setFls] = useState();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -77,7 +76,6 @@ const EmploymentForm = () => {
 
   const fileUpload = async (file) => {
     try {
-      setUploading(true)
       let oldfiles = contact.files;
 
       const url = `${Config.api}/file/empupload`;
@@ -97,7 +95,7 @@ const EmploymentForm = () => {
       contact.files
         ? contact.files.map((f, i) => {
             prev.push(
-              <div className="col-xs-6 col-sm-3" key={i}>
+              <div className="col-sm-6" key={i}>
                 <img src={f} alt={f} />
               </div>
             );
@@ -105,13 +103,8 @@ const EmploymentForm = () => {
         : "";
 
       setContact((prevState) => ({ ...prevState, filePrev: prev }));
-      setUploading(false)
     } catch (error) {
       console.log(error);
-      setUploading(false)
-    }
-    if(contact.files.length > 0){
-      setImageCheck(false)
     }
   };
 
@@ -119,19 +112,13 @@ const EmploymentForm = () => {
     let file = e.target.files[0];
 
     fileUpload(file);
+
+    console.log(contact.files)
+    console.log(contact.filePrev)
   };
 
   const onSubmit = async (e) => {
-
-    console.log(contact.files)
-
-    if(contact.files.length == 0){
-      setImageCheck(true)
-    }
     // e.preventDefault();
-
-
-    if(contact.files.length > 0){
     try {
       const url = `${baseUrl}/api/employment`;
       const {
@@ -161,7 +148,6 @@ const EmploymentForm = () => {
     } catch (error) {
       console.log(error);
     }
-  }
   };
 
   return (
@@ -254,7 +240,7 @@ const EmploymentForm = () => {
                     else you might like to talk about :)
                     <br />
                     <br />
-                    Call us anytime for more information - 0491 973 448
+                    Call us anytime for more information - 0492 141 346
                   </p>
                 </div>
               </div>
@@ -393,7 +379,7 @@ const EmploymentForm = () => {
                         name="text"
                         cols="30"
                         rows="5"
-                        placeholder="Write a short bio..."
+                        placeholder="Write your message..."
                         className="form-control"
                         value={contact.text}
                         onChange={handleChange}
@@ -407,39 +393,31 @@ const EmploymentForm = () => {
                     </div>
                   </div>
 
-<div className="col-sm-12">
-  <div className="images">Please upload at least 1 image of yourself.  A selfie is fine.</div>
- {imageCheck && <div className="invalid-feedback imf">You must upload at least 1 photo</div>}
-</div>
-
                   <div className="col-lg-12">
                     <input
                       type="file"
                       id="file"
                       name="file"
                       onChange={handleFileChange}
-                    />{' '}
-                   {uploading && <span className="spinner-wrap">  <Button variant="primary" disabled>
-    <Spinner
-      as="span"
-      animation="border"
-      size="sm"
-      role="status"
-      aria-hidden="true"
-    />
-    <span className="visually-hidden">{'  '}Uploading...</span>
-  </Button></span> }
+                    />
                     <div className="file-prev" id="files">
                       <div className="row">{contact.filePrev}</div>
                     </div>
-
                   </div>
 
 
+                  <div className="container" style={{ width: "600px" }}>
+      <div className="my-3">
+        <h3>bezkoder.com</h3>
+        <h4>React Hooks File Upload</h4>
+      </div>
+
+      <FileUpload folder={folder} />
+    </div>
 
                   <div className="col-lg-12 col-sm-12">
                     <button type="submit" className="default-btn">
-                      Apply Now
+                      Send Message
                     </button>
                   </div>
                 </div>

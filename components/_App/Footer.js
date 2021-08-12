@@ -118,6 +118,11 @@ const Footer = (props) => {
                       <a>Contact</a>
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/links">
+                      <a>Adult Links</a>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
