@@ -61,7 +61,7 @@ const Local = (props) => {
   );
 };
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   
   const city = params.city;
 
@@ -84,15 +84,15 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPaths() {
-  const locs = await getLocals();
+// export async function getStaticPaths() {
+//   const locs = await getLocals();
 
-  const paths = locs.map((l) => ({
-    params: { city: l.loc },
-  }))
+//   const paths = locs.map((l) => ({
+//     params: { city: l.loc },
+//   }))
 
-  return { paths, fallback: false }
-}
+//   return { paths, fallback: false }
+// }
 
 
 export default Local;

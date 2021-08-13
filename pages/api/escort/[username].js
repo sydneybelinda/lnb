@@ -11,7 +11,7 @@ export default async (req, res) => {
   } = req;
 
 
-  var escort = []
+
 
   const e = await db.escorts.findOne({
     where: {
@@ -24,13 +24,21 @@ export default async (req, res) => {
   const files = await db.files.findAll({
     where: {
       user: username,
-      type: "Thumb"
+     // type: "Thumb"
     }
 
   })
 
- escort.push(e);
- escort.push({files: files})
+
+  const escort = {
+    escort: e,
+    files: files
+  }
+
+
+
+//  escort.push(e);
+//  escort.push({files: files})
 
       if (!escort) {
 escort = [];

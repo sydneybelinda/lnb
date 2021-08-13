@@ -9,7 +9,9 @@ import {getEscort, getServices, getAllServices, getLocals, getAllEscorts} from "
 
 
 const Escort = (props) => {
-const e = props.escort[0]
+const e = props.escort.escort
+
+console.log(e)
 
   const Meta = {
     title: `${e.firstName} ${e.surname} - High Class Escort  | Late Night Babes Sydney`,
@@ -30,7 +32,7 @@ const e = props.escort[0]
   );
 };
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   
   const username = params.username;
 
@@ -39,11 +41,11 @@ const services = await getServices();
 const s = await getAllServices();
 const locs = await getLocals();
 
-  // if (!data) {
-  //   return {
-  //     notFound: true,
-  //   }
-  // }
+  if (!escort) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: { 
@@ -55,21 +57,21 @@ const locs = await getLocals();
   }
 }
 
-export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
-  const escorts = await getAllEscorts();
+// export async function getStaticPaths() {
+//   // Call an external API endpoint to get posts
+//   const escorts = await getAllEscorts();
 
-  // Get the paths we want to pre-render based on posts
-  const paths = escorts.rows.map((es) => ({
-    params: { username: es.username },
-  }))
+//   // Get the paths we want to pre-render based on posts
+//   const paths = escorts.rows.map((es) => ({
+//     params: { username: es.username },
+//   }))
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
+//   // We'll pre-render only these paths at build time.
+//   // { fallback: false } means other routes should 404.
+//   return { paths, fallback: false }
+// }
 
-// Escort.getInitialProps = async (ctx) => {
+// Escort.getServerSideProps = async (ctx) => {
 //     const { query } = ctx;
 //     const username = query.username;
 

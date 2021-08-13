@@ -55,7 +55,7 @@ console.log(siteLinks)
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const services = await getAllServices();
   const locs = await getLocals();
   const links = await getAllLinks();
@@ -75,7 +75,7 @@ export async function getStaticProps(ctx) {
   }
 }
 
-// Ettiquette.getInitialProps = async (ctx) => {
+// Ettiquette.getServerSideProps = async (ctx) => {
 
 //   const services = await getAllServices();
 //   const locs = await getLocals();

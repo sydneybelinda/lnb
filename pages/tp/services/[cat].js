@@ -52,7 +52,7 @@ const Escorts = (props) => {
     )
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   
     const cat = params.cat;
 
@@ -80,25 +80,25 @@ export async function getStaticProps({ params }) {
     }
   }
   
-  export async function getStaticPaths() {
+  // export async function getStaticPaths() {
    
-    const res = await fetch(`${Config.api}/seoservices/get`);
-    const seo = await res.json()
+  //   const res = await fetch(`${Config.api}/seoservices/get`);
+  //   const seo = await res.json()
   
-    const paths = seo.map((s) => ({
-      params: { cat: s.keyindex },
-    }))
+  //   const paths = seo.map((s) => ({
+  //     params: { cat: s.keyindex },
+  //   }))
 
-    var pa = [] 
-    paths.map((p)=>{
-        p.params.cat ?
-        pa.push(p) : ''
-    })
+  //   var pa = [] 
+  //   paths.map((p)=>{
+  //       p.params.cat ?
+  //       pa.push(p) : ''
+  //   })
 
 
   
-    return { paths:pa, fallback: false }
-  }
+  //   return { paths:pa, fallback: false }
+  // }
 
 export default Escorts;
 

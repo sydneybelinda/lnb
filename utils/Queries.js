@@ -11,6 +11,12 @@ export const getAllEscorts = async (ctx) => {
     return escorts;
   };
 
+  export const getAllAgencyEscorts = async (ctx) => {
+    const res = await fetch(`${API}/escorts/getallagency`);
+    let escorts = await res.json();
+    return escorts;
+  };
+
   export const getAllLinks = async (ctx) => {
     const res = await fetch(`${API}/link`);
     let links = await res.json();
@@ -21,6 +27,15 @@ export const getAllEscorts = async (ctx) => {
     const res = await fetch(`${API}/escort/${username}`);
     let escort = await res.json();
     return escort;
+  };
+
+  export const getUser = async () => {
+
+    var user = []
+
+    user.push('lnbsydney')
+
+    return user;
   };
 
   export const getServices = async (ctx) => {
@@ -88,6 +103,12 @@ export const getAllEscorts = async (ctx) => {
     return s;
   };
 
+  export const getCities = async (city) => {
+    const res = await fetch(`${API}/cities`);
+    let s = await res.json();
+    return s;
+  };
+
 
 
 
@@ -123,4 +144,114 @@ export const getAllEscorts = async (ctx) => {
 
     return n;
   }
+
+  export const deleteFile = async (name,username) => {
+
+  
+    try {
+      const response = await fetch(`${API}/file/delete`, {
+        method: "POST",
+  
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, username: username })
+      });
+      if (response.status === 200) {
+        // Router.push('/dashboard')
+        return { status: "Success" };
+      } else {
+        console.log("Delete failed.");
+        // https://github.com/developit/unfetch#caveats
+        let error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+      }
+    } catch (error) {
+      console.error(
+        "You have an error in your code or there are Network issues.",
+        error
+      );
+    }
+  };
+
+  export const uploadFile = async (files, username) => {
+
+  
+    try {
+      const response = await fetch(`${API}/file/upload`, {
+        method: "POST",
+  
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ files })
+      });
+      if (response.status === 200) {
+        // Router.push('/dashboard')
+        return { status: "Success" };
+      } else {
+        console.log("Delete failed.");
+        // https://github.com/developit/unfetch#caveats
+        let error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+      }
+    } catch (error) {
+      console.error(
+        "You have an error in your code or there are Network issues.",
+        error
+      );
+    }
+  };
+
+  
+  export const updateAgency = async (data) => {
+
+    const res = await fetch(`${API}/agency/update`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
+
+    
+    return res;
+  };
+
+  export const getAgency = async (username) => {
+    const res = await fetch(`${API}/agency/${username}`);
+    let escorts = await res.json();
+    return escorts;
+  };
+
+  export const updateEscort = async (data) => {
+
+    const res = await fetch(`${API}/escort/update`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
+
+    
+    return res;
+  };
+
+  export const updateEscortProfpic = async (data) => {
+
+    const res = await fetch(`${API}/escort/profpic`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
+
+    
+    return res;
+  };
+
+  export const getSelect = async (type) => {
+    const res = await fetch(`${API}/select/${type}`);
+    let u = await res.json();
+    return u;
+  };
+  
+
 

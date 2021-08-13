@@ -138,7 +138,7 @@ const Faq = (props) => {
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const services = await getAllServices();
   const locs = await getLocals();
 
@@ -156,7 +156,7 @@ export async function getStaticProps(ctx) {
   }
 }
 
-// Faq.getInitialProps = async (ctx) => {
+// Faq.getServerSideProps = async (ctx) => {
 
 //   const services = await getAllServices();
 

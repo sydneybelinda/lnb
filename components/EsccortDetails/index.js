@@ -6,9 +6,9 @@ import Gallery from "./Galery";
 import PortfolioSidebar from "./PortfolioSidebar";
 
 const EscortDetails = (props) => {
-  const e = props.escort[0];
+  const e = props.escort.escort;
 
-  const f = props.escort[1].files;
+  const f = props.escort.files;
 
   const services = props.services;
 

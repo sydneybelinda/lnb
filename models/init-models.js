@@ -1,4 +1,3 @@
-
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
@@ -20,19 +19,17 @@ if (config.use_env_variable) {
 }
 
 
+
 var DataTypes = require("sequelize").DataTypes;
 var _admire = require("./admire");
-var _employment = require("./employment");
+var _cities = require("./cities");
 var _escorts = require("./escorts");
 var _files = require("./files");
-var _fos_group = require("./fos_group");
-var _fos_user = require("./fos_user");
-var _fos_user_user_group = require("./fos_user_user_group");
+var _links = require("./links");
 var _local = require("./local");
 var _pages = require("./pages");
 var _post = require("./post");
 var _postcode_db = require("./postcode_db");
-var _postcodedb = require("./postcodedb");
 var _select_bust = require("./select_bust");
 var _select_chest_bust_hips = require("./select_chest_bust_hips");
 var _select_countries = require("./select_countries");
@@ -50,21 +47,18 @@ var _seoorientation = require("./seoorientation");
 var _seoother = require("./seoother");
 var _seoservices = require("./seoservices");
 var _services = require("./services");
-var _links = require("./links");
+var _users = require("./users");
 
 function initModels(sequelize) {
   var admire = _admire(sequelize, DataTypes);
-  var employment = _employment(sequelize, DataTypes);
+  var cities = _cities(sequelize, DataTypes);
   var escorts = _escorts(sequelize, DataTypes);
   var files = _files(sequelize, DataTypes);
-  var fos_group = _fos_group(sequelize, DataTypes);
-  var fos_user = _fos_user(sequelize, DataTypes);
-  var fos_user_user_group = _fos_user_user_group(sequelize, DataTypes);
+  var links = _links(sequelize, DataTypes);
   var local = _local(sequelize, DataTypes);
   var pages = _pages(sequelize, DataTypes);
   var post = _post(sequelize, DataTypes);
   var postcode_db = _postcode_db(sequelize, DataTypes);
-  var postcodedb = _postcodedb(sequelize, DataTypes);
   var select_bust = _select_bust(sequelize, DataTypes);
   var select_chest_bust_hips = _select_chest_bust_hips(sequelize, DataTypes);
   var select_countries = _select_countries(sequelize, DataTypes);
@@ -82,28 +76,19 @@ function initModels(sequelize) {
   var seoother = _seoother(sequelize, DataTypes);
   var seoservices = _seoservices(sequelize, DataTypes);
   var services = _services(sequelize, DataTypes);
-  var links = _links(sequelize, DataTypes);
+  var users = _users(sequelize, DataTypes);
 
-  fos_group.belongsToMany(fos_user, { as: 'users', through: fos_user_user_group, foreignKey: "group_id", otherKey: "user_id" });
-  fos_user.belongsToMany(fos_group, { as: 'groups', through: fos_user_user_group, foreignKey: "user_id", otherKey: "group_id" });
-  fos_user_user_group.belongsTo(fos_group, { as: "group", foreignKey: "group_id"});
-  fos_group.hasMany(fos_user_user_group, { as: "fos_user_user_groups", foreignKey: "group_id"});
-  fos_user_user_group.belongsTo(fos_user, { as: "user", foreignKey: "user_id"});
-  fos_user.hasMany(fos_user_user_group, { as: "fos_user_user_groups", foreignKey: "user_id"});
 
   return {
     admire,
-    employment,
+    cities,
     escorts,
     files,
-    fos_group,
-    fos_user,
-    fos_user_user_group,
+    links,
     local,
     pages,
     post,
     postcode_db,
-    postcodedb,
     select_bust,
     select_chest_bust_hips,
     select_countries,
@@ -121,10 +106,9 @@ function initModels(sequelize) {
     seoother,
     seoservices,
     services,
-    links
+    users,
   };
 }
-
 const Models = initModels(sequelize) 
 
 

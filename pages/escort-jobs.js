@@ -44,7 +44,7 @@ const EscortJobs = (props) => {
     )
 }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const services = await getAllServices();
   const locs = await getLocals();
 
@@ -62,7 +62,7 @@ export async function getStaticProps(ctx) {
   }
 }
 
-// EscortJobs.getInitialProps = async (ctx) => {
+// EscortJobs.getServerSideProps = async (ctx) => {
 
 //   const services = await getAllServices();
 //   const locs = await getLocals();

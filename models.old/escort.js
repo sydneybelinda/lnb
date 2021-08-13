@@ -142,18 +142,18 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
     }
   );
-  Post.associate = function(models) {
+  Escort.associate = function(models) {
     Post.hasMany(models.File, {
       foreignKey: "postId",
       as: "files",
       onDelete: "CASCADE"
     });
 
-    Post.belongsTo(models.User, {
+    Escort.belongsTo(models.User, {
       foreignKey: "userId",
       as: "user",
       onDelete: "CASCADE"
     });
   };
-  return Post;
+  return Escort;
 };

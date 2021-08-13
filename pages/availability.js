@@ -72,7 +72,7 @@ const num = getToday().number
     )
 }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
     const escorts = await getAllEscorts();
     const services = await getAllServices();
     const locs = await getLocals();
@@ -93,7 +93,7 @@ export async function getStaticProps(ctx) {
   }
 
 
-// Availability.getInitialProps = async (ctx) => {
+// Availability.getServerSideProps = async (ctx) => {
 
   
 //     const escorts = await getAllEscorts();

@@ -67,7 +67,7 @@ const Index = (props) => {
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
     const services = await getAllServices();
     const escorts = await getAllEscorts();
     const locs = await getLocals();
@@ -88,7 +88,7 @@ export async function getStaticProps(ctx) {
   }
 
 
-// Index.getInitialProps = async (ctx) => {
+// Index.getServerSideProps = async (ctx) => {
 //   const services = await getAllServices();
 //   const escorts = await getAllEscorts();
 //   const locs = await getLocals();

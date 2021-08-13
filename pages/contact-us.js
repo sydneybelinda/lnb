@@ -89,7 +89,7 @@ const Contact = (props) => {
     )
 }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
     const services = await getAllServices();
     const locs = await getLocals();
   
@@ -107,7 +107,7 @@ export async function getStaticProps(ctx) {
     }
   }
 
-// Contact.getInitialProps = async (ctx) => {
+// Contact.getServerSideProps = async (ctx) => {
 
 //     const services = await getAllServices();
 //     const locs = await getLocals();

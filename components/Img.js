@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 const Img = ({username, file}) => {
 
-    const imagePath = `/userdata/${username}/images/${file}`;
+    const imagePath = `/static/userdata/${username}/images/${file}`;
     const [src, setSrc] = useState(imagePath)
 
 
