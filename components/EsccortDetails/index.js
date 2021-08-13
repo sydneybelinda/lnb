@@ -21,6 +21,9 @@ const EscortDetails = (props) => {
 
   var name = e.firstName;
   e.lastname ? (name += e.lastname) : "";
+  const desc = (e.description.replaceAll("\r","<br/>"))
+
+  console.log(desc)
 
   return (
     <React.Fragment>
@@ -38,7 +41,8 @@ const EscortDetails = (props) => {
 
             <div className="container">
               <div className="portfolio-details-desc">
-                <p>{nl2br(e.description)}</p>
+              <div dangerouslySetInnerHTML={{ __html:  desc}} />
+                {/* <p>{nl2br(e.description)}</p> */}
 
                 <div className="row align-items-center">
                   <div className="col-lg-6 col-md-6">

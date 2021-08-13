@@ -57,31 +57,6 @@ const locs = await getLocals();
   }
 }
 
-// export async function getStaticPaths() {
-//   // Call an external API endpoint to get posts
-//   const escorts = await getAllEscorts();
-
-//   // Get the paths we want to pre-render based on posts
-//   const paths = escorts.rows.map((es) => ({
-//     params: { username: es.username },
-//   }))
-
-//   // We'll pre-render only these paths at build time.
-//   // { fallback: false } means other routes should 404.
-//   return { paths, fallback: false }
-// }
-
-// Escort.getServerSideProps = async (ctx) => {
-//     const { query } = ctx;
-//     const username = query.username;
-
-//   const escort = await getEscort(username);
-//   const services = await getServices();
-//   const s = await getAllServices();
-//   const locs = await getLocals();
-
-//   return { escort: escort, services:services, s:s, locs:locs };
-// };
 
 export default Escort;
 
