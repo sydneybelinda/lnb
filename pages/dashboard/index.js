@@ -45,7 +45,7 @@ const Dashboard = (props) => {
                               Keep checking this space new exciting things are
                               being added all the time!
                             </div>
-                            <h5>Agency Escorts</h5>
+                            <h5>Agency Escorts <span className="addnewescort"><a href="/dashboard/editescort">add new</a></span></h5>
                             <hr />
                             <div className="row">
                               {escorts &&

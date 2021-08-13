@@ -73,6 +73,11 @@ console.log(fdata)
 
 const newfile = await db.files.create(fdata)
 
+if (!fs.existsSync(`static/userdata/${fdata.user}`)){
+  fs.mkdirSync(`static/userdata/${fdata.user}`);
+  fs.mkdirSync(`static/userdata/${fdata.user}/images`)
+}
+
 
 
 

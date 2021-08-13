@@ -188,6 +188,8 @@ const AgencyInfoForm = (props) => {
       onSubmit={async (values) => {
 
         
+
+        
         console.log(fls[0])
 
         
@@ -371,9 +373,12 @@ const AgencyInfoForm = (props) => {
         handleFirstNameChange = (e) => {
           if (!values.username) {
 
-              setUn(values.firstName);
+              setUn(values.firstName.toLowerCase());
 
-              values.username = values.firstName;
+              values.username = values.firstName.toLowerCase();
+
+              console.log(values.username)
+
               values.owner = user;
             }
 
@@ -426,9 +431,12 @@ const AgencyInfoForm = (props) => {
                     name="firstName"
                     value={values.firstName}
                     onChange={(e) => {
-                      handleFirstNameChange(e);
                       handleChange(e);
                     }}
+                    // onBlur={(e) => {
+                    //   handleFirstNameChange(e);
+                    //   handleBlur(e);
+                    // }}
                     // onChange={handleFirstNameChange}
                     onBlur={handleBlur}
                     isInvalid={touched.firstName && errors.firstName}
@@ -623,7 +631,11 @@ const AgencyInfoForm = (props) => {
                     name="shortDesc"
                     value={values.shortDesc}
                     onChange={handleChange}
-                    onBlur={handleBlur}
+                  //  onBlur={handleBlur}
+                  onBlur={(e) => {
+                    handleFirstNameChange(e);
+                    handleBlur(e);
+                  }}
                     isInvalid={touched.shortDesc && errors.shortDesc}
                   />
                   <Form.Control.Feedback type="invalid">

@@ -37,32 +37,8 @@ console.log(data)
 
       
             try {
-              const newescort = await Escort.create(data)
+              const newescort = await db.escorts.create(data)
 
-              if(data.type == "Agency Escort"){
-
-                const agency = await Agency.findOne({
-                  where: {
-                    username: data.owner,
-                  }
-              })
-              
-              let nextid = 1
-
-              if(agency.lastEscortId){
-                nextid = agency.lastEscortId + 1;
-              }
-
-              const adata = {
-                lastEscortId: nextid
-              }
-
-              const updateAgency = await Agency.update(adata, {
-                where: {
-                    username: data.owner
-                }
-            })
-            }
       
               return res.status(200).send(newescort);
             } catch (err) {

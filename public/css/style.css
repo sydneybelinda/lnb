@@ -10503,4 +10503,12 @@ a.filepond--credits {
 .display-block {
   display: block !important;
 }
+
+.addnewescort {
+  float: right;
+  font-weight: 400;
+  font-size: 15px;
+  text-decoration: underline;
+  margin-right: 20px;
+}
 /*# sourceMappingURL=style.css.map */
