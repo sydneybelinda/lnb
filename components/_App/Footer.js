@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Config from "../../config";
+import Config from "../../config"
 import nl2br from "react-nl2br";
 
 const phoneUrl = `+61${Config.phone.replace(/\s/g, "").substring(1)}`;

@@ -21,9 +21,8 @@ const EscortDetails = (props) => {
 
   var name = e.firstName;
   e.lastname ? (name += e.lastname) : "";
-  const desc = (e.description.replaceAll("\r","<br/>"))
+  const desc = (e.description.replace(/\r/g,"<br/>"))
 
-  console.log(desc)
 
   return (
     <React.Fragment>
