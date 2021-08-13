@@ -173,6 +173,62 @@ export const getAllEscorts = async (ctx) => {
     }
   };
 
+  export const addSiteLink = async (text) => {
+
+  
+    try {
+      const response = await fetch(`${API}/link/add`, {
+        method: "POST",
+  
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: text })
+      });
+      if (response.status === 200) {
+        // Router.push('/dashboard')
+        return { status: "Success" };
+      } else {
+        console.log("Delete failed.");
+        // https://github.com/developit/unfetch#caveats
+        let error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+      }
+    } catch (error) {
+      console.error(
+        "You have an error in your code or there are Network issues.",
+        error
+      );
+    }
+  };
+
+  export const deleteSiteLink = async (id) => {
+
+  
+    try {
+      const response = await fetch(`${API}/link/delete`, {
+        method: "POST",
+  
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: id })
+      });
+      if (response.status === 200) {
+        // Router.push('/dashboard')
+        return { status: "Success" };
+      } else {
+        console.log("Delete failed.");
+        // https://github.com/developit/unfetch#caveats
+        let error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+      }
+    } catch (error) {
+      console.error(
+        "You have an error in your code or there are Network issues.",
+        error
+      );
+    }
+  };
+
   export const uploadFile = async (files, username) => {
 
   

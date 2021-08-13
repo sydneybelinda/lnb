@@ -1,18 +1,37 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import TopHeader from "../../components/_App/TopHeader";
 import Navbar from "../../components/_App/Navbar";
 import Sidebar from "../../components/Dashboard/SideBar";
+import { Button} from 'react-bootstrap';
 import { signIn, signOut, getSession } from "next-auth/client";
-import { getAllAgencyEscorts, getUser } from "../../utils/Queries";
-import AgencyEscorts from "../../components/Dashboard/AgencyEscorts";
+import { getAllAgencyEscorts, getUser, getAllLinks } from "../../utils/Queries";
+import SiteLink from "../../components/Dashboard/SiteLink";
+import LModal from "../../components/Dashboard/LModal"
 
 import Footer from "../../components/_App/Footer";
 
 const Dashboard = (props) => {
 
+    const [modalShow, setModalShow] = useState(false);
+
+    const [links, setLinks] = useState(props.links);
+
+
   const escorts = props.escorts.rows;
   const user = props.user[0];
 
+
+  const addLink = () => {
+      const heading = "Add New Link"
+   setModalShow(true)
+  }
+
+  const getLinks = async () => {
+    const l = await getAllLinks();
+    setLinks(l)
+
+  }
+ 
   return (
     <React.Fragment>
       <div className="content">
@@ -29,29 +48,28 @@ const Dashboard = (props) => {
                     <div className="col-lg-9">
                       <div className="ps-page__content">
 
-                            <h3>Agency Dashboard</h3>
+                            <h3>Manage Links</h3> 
                             <hr />
                             <div className="notices">
-                              This is your central point for all related
-                              settings and configuration. Use this panel to
-                              create/edit your public EscortGem agency profile,
-                              Create/Edit Agency escorts, manage escort tours
-                              and manage your account and settings.
+                              Use this page to manage Website links page
                               <br />
-                              <br />
-                              Tip. Start by creating your public agency profile.
-                              <br />
-                              <br />
-                              Keep checking this space new exciting things are
-                              being added all the time!
+
                             </div>
-                            <h5>Agency Escorts</h5>
+                            <h5>Links  <span className="addnewlink"><Button className="add" size="sm" onClick={() => addLink()}>add</Button></span></h5>
                             <hr />
                             <div className="row">
-                              {escorts &&
-                                escorts.map((e) => <AgencyEscorts e={e} key={e.id} />)}
+                                {links && 
+                                links.map((link) => <SiteLink link={link} key={link.id} getlinks={() => getLinks()} />)
+                                }
+                              {/* {escorts &&
+                                escorts.map((e) => <AgencyEscorts e={e} />)} */}
                             </div>
+                            <LModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+       getlinks={() => getLinks()}
 
+      />
                         
                       </div>
                     </div>
@@ -73,9 +91,10 @@ export async function getServerSideProps(context) {
 
     const escorts = await getAllAgencyEscorts();
     const user = await getUser();
+    const links = await getAllLinks();
 
     return {
-      props: { escorts, user },
+      props: { escorts, user, links },
     };
   }
 

@@ -27,6 +27,13 @@ const SideBar = (props) => {
                   <a>Dashboard</a>
                 </Link>
               </li>
+
+              <li>
+                <Link href="/dashboard/links" activeClassName="active">
+                  <a>Manage Links</a>
+                </Link>
+              </li>
+
               {user.type == "independent" && (
                 <>
                   <li>

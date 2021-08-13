@@ -1,20 +1,42 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Img from "../Img"
-import { Button } from 'react-bootstrap';
+import { Button, Card, ButtonGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-
-const Escort = (props) => {
-  const e = props.e;
+import { deleteSiteLink } from "../../utils/Queries"
 
 
-  var name = e.firstName;
-  e.lastname ? (name += e.lastname) : "";
+const SiteLink = (props) => {
+
+    const link = props.link
+
+    const delLink = async(e) => {
+      const result = await deleteSiteLink(e.target.value)
+
+      props.getlinks()
+    }
 
   return (
-    <div className="col-sm-12" key={e.id}>
-      <div className="agencyescort">
+    <div className="col-sm-12">
+<div className="dlink">
+<Card>
+<Card.Body> <div className="linkname">
+        {link.link}
+    </div>
+
+<div className="link-actions">
+<ButtonGroup aria-label="Actions">
+<Button className="edit" size="sm" variant="secondary" value={link.id}>edit</Button>
+<Button className="delete" variant="danger" size="sm" value={link.id} onClick={delLink}>delete</Button>
+</ButtonGroup>
+</div>
+
+    </Card.Body>
+</Card>
+</div>
+
+      {/* <div className="agencyescort">
           <div className="image">
           <Img username={e.username} file={e.profpic} />
 
@@ -33,9 +55,9 @@ const Escort = (props) => {
             </Link>
         </div>
     
-    </div>
+    </div> */}
     </div>
   );
 };
 
-export default Escort;
+export default SiteLink;
