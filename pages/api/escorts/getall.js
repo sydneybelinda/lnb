@@ -11,7 +11,7 @@ export default async (req, res) => {
       where: {
         enabled: "True",
       },
-      order: [['position', 'DESC']],
+      order: [['position', 'ASC']],
   
     })
 

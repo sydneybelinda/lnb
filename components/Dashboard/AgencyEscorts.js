@@ -58,7 +58,7 @@ const Escort = (props) => {
           </div>
            
           <div className="escortviews p-15">
-         <span className="views"> <FontAwesomeIcon icon={faEye} /> {e.views}</span>
+         <span className="views"> Position: <br /> {e.position}</span>
           </div>
 
           <div className="actions">
