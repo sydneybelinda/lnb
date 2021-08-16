@@ -58,7 +58,7 @@ const Escort = (props) => {
           </div>
            
           <div className="escortviews p-15">
-         <span className="views"> Position: <br /> {e.position}</span>
+          {e.enabled == "True" && <span className="views">Position: <br /> {e.position}</span>} 
           </div>
 
           <div className="actions">
