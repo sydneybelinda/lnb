@@ -5,6 +5,7 @@ import EscortProfileForm from "../../../components/Dashboard/Escort/EscortProfil
 import Sidebar from "../../../components/Dashboard/SideBar";
 import { signIn, signOut, getSession } from "next-auth/client";
 import { getUser, getSelect, getServices, getEscort, getCities} from "../../../utils/Queries";
+import withSession from '../../../lib/session'
 
 import Footer from "../../../components/_App/Footer";
 
@@ -55,26 +56,25 @@ const NewProfile = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
- // const session = await getSession(context);
+export const getServerSideProps = withSession(async function (context) {
+  const user = context.req.session.get('user')
+
+
+
+  if (!user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
+
   const eusername = context.params.username;
 
-  // if (!session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/login", // some destination '/dashboard' Ex,
-  //       permanent: false,
-  //     },
-  //   };
-  // } else {
-   // const username = session.user.name;
 
    const username = "lnbsydney"
 
-   const user = "lnbsydney"
-
-   // const user = await getUser(username);
-   // const agency = await getAgency(username);
     const cities = await getCities()
     const services = await getServices()
     const escort = await getEscort(eusername)
@@ -116,15 +116,14 @@ export async function getServerSideProps(context) {
 
     return { 
       props: { 
-        //session,
         cities,
-              user, 
+        user: context.req.session.get('user'),
               selects,
               services,
               escort,
             },
     };
-  }
-//}
+  })
+
 
 export default NewProfile;

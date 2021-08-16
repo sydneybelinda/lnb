@@ -226,7 +226,7 @@ const AgencyInfoForm = (props) => {
         location: escort.location || "",
         shortDesc: escort.shortDesc || "",
         description: escort.description || "",
-        email: escort.email || user.email || "",
+        email: escort.email ||  "",
         phone: escort.phone || "",
         age: escort.age || "",
         hair: escort.hair || "",
@@ -379,7 +379,7 @@ const AgencyInfoForm = (props) => {
 
               console.log(values.username)
 
-              values.owner = user;
+              values.owner = user.username;
             }
 
         },

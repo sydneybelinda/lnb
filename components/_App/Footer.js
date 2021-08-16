@@ -122,6 +122,11 @@ const Footer = (props) => {
                     <Link href="/links">
                       <a>Adult Links</a>
                     </Link>
+                    </li>
+                    <li>
+                    <Link href="/dashboard">
+                      <a>Dashboard</a>
+                    </Link>
                   </li>
                 </ul>
               </div>

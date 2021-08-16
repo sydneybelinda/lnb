@@ -5,6 +5,8 @@ import Sidebar from "../../components/Dashboard/SideBar";
 import { signIn, signOut, getSession } from "next-auth/client";
 import { getAllAgencyEscorts, getUser } from "../../utils/Queries";
 import AgencyEscorts from "../../components/Dashboard/AgencyEscorts";
+import withSession from '../../lib/session'
+import PropTypes from 'prop-types'
 
 import Footer from "../../components/_App/Footer";
 
@@ -87,15 +89,25 @@ const Dashboard = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = withSession(async function ({ req, res }) {
+  const user = req.session.get('user')
+
+  if (!user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
 
     const escorts = await getAllAgencyEscorts();
-    const user = await getUser();
+
 
     return {
-      props: { escorts, user },
+      props: { escorts, user: req.session.get('user') },
     };
-  }
+  })
 
 
 

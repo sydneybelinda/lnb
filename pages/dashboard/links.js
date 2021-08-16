@@ -7,6 +7,7 @@ import { signIn, signOut, getSession } from "next-auth/client";
 import { getAllAgencyEscorts, getUser, getAllLinks } from "../../utils/Queries";
 import SiteLink from "../../components/Dashboard/SiteLink";
 import LModal from "../../components/Dashboard/LModal"
+import withSession from '../../lib/session'
 
 import Footer from "../../components/_App/Footer";
 
@@ -17,7 +18,6 @@ const Dashboard = (props) => {
     const [links, setLinks] = useState(props.links);
 
 
-  const escorts = props.escorts.rows;
   const user = props.user[0];
 
 
@@ -87,16 +87,31 @@ const Dashboard = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
 
-    const escorts = await getAllAgencyEscorts();
-    const user = await getUser();
-    const links = await getAllLinks();
 
-    return {
-      props: { escorts, user, links },
-    };
-  }
+
+  export const getServerSideProps = withSession(async function ({ req, res }) {
+    const user = req.session.get('user')
+  
+    if (!user) {
+      return {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    }
+  
+      const escorts = await getAllAgencyEscorts();
+      const links = await getAllLinks();
+  
+  
+      return {
+        props: { links, user: req.session.get('user') },
+      };
+    })
+  
+  
 
 
 

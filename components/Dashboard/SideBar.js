@@ -29,43 +29,26 @@ const SideBar = (props) => {
               </li>
 
               <li>
+                    <Link href="/dashboard/editescort" activeClassName="active">
+                      <a>New Escort Profile</a>
+                    </Link>
+                  </li>
+
+
+              <li>
                 <Link href="/dashboard/links" activeClassName="active">
                   <a>Manage Links</a>
                 </Link>
               </li>
 
-              {user.type == "independent" && (
-                <>
-                  <li>
-                    <Link href="/dashboard/editescort" activeClassName="active">
-                      <a>Edit Escort Profile</a>
-                    </Link>
-                  </li>
-                </>
-              )}
 
+     
 
-              {user.type == "agency" && (
-                <>
-                  <li>
-                    <Link href="/dashboard/newprofile" activeClassName="active">
-                      <a>New Escort Profile</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/dashboard/agency" activeClassName="active">
-                      <a>Agency Details</a>
-                    </Link>
-                  </li>
-                </>
-              )}
+         
 
               <li>
-                <Link href="/dashboard">
-                  <a onClick={(e) => {
-                  e.preventDefault()
-                  signOut()
-                }}>
+                <Link href="/api/auth/logout">
+                  <a >
                     <i className="icon-power-switch"></i>
                     Logout
                   </a>

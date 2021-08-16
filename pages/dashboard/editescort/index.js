@@ -5,6 +5,7 @@ import EscortProfileForm from "../../../components/Dashboard/Escort/EscortProfil
 import Sidebar from "../../../components/Dashboard/SideBar";
 import { signIn, signOut, getSession } from "next-auth/client";
 import {  getCities, getSelect, getServices} from "../../../utils/Queries";
+import withSession from '../../../lib/session'
 
 import Footer from "../../../components/_App/Footer";
 
@@ -56,32 +57,22 @@ const EditEscort = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-  
+export const getServerSideProps = withSession(async function ({ req, res }) {
+  const user = req.session.get('user')
 
-  // if (!session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/login", // some destination '/dashboard' Ex,
-  //       permanent: false,
-  //     },
-  //   };
-  // } else {
-    const username = 'lnbsydney';
+  if (!user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
 
 
 
-    const user = "lnbsydney"
- 
-    // const user = await getUser(username);
-    // const agency = await getAgency(username);
      const cities = await getCities()
      const services = await getServices()
-    //const escort = await getEscort(username)
-
-
-
 
     const selectNationalities = await getSelect("select_nationalities");
     const selectHair = await getSelect("select_hair");
@@ -116,85 +107,18 @@ export async function getServerSideProps(context) {
       levels: selectLevels
     }
 
-    return { 
-      props: {
-              user, 
-              cities,
-              selects,
-              services,
-            },
+    return {
+      props: {              
+        cities,
+        selects,
+        services, 
+        user: req.session.get('user') },
     };
-//  }
-}
-
-// export async function getServerSideProps(context) {
-//  // const session = await getSession(context);
-//   const eusername = context.params.username;
-
-//   // if (!session) {
-//   //   return {
-//   //     redirect: {
-//   //       destination: "/login", // some destination '/dashboard' Ex,
-//   //       permanent: false,
-//   //     },
-//   //   };
-//   // } else {
-//    // const username = session.user.name;
-
-//    const username = "lnbsydney"
-
-//    const user = "lnbsydney"
-
-//    // const user = await getUser(username);
-//    // const agency = await getAgency(username);
-//     const cities = await getCities()
-//     const services = await getServices()
+  })
 
 
+ 
 
 
-
-//     const selectNationalities = await getSelect("select_nationalities");
-//     const selectHair = await getSelect("select_hair");
-//     const selectEyes = await getSelect("select_eyes");
-//     const selectHeight = await getSelect("select_height");
-//     const selectDressSize = await getSelect("select_dresssize");
-//     const selectSexualPreference = await getSelect("select_sexualpreference");
-//     const selectBust = await getSelect("select_bust");
-//     const selectChestBustHips = await getSelect("select_chest_bust_hips");
-//     const selectLanguages = await getSelect("select_language");
-//     const selectLevels = await getSelect("select_level");
-
-//     const selectAge = []
-
-//     let i=0;
-//     for(i=18; i<100; i++){
-//       selectAge.push(i)
-//     }
-
-//     const selects= {
-//       nationalities: selectNationalities,
-//       hair: selectHair,
-//       eyes: selectEyes,
-//       height: selectHeight,
-//       age: selectAge,
-//       dresssize: selectDressSize,
-//       sexualorientation: selectSexualPreference,
-//       bust: selectBust,
-//       chest: selectChestBustHips,
-//       languages: selectLanguages,
-//       levels: selectLevels
-//     }
-
-//     return { 
-//       props: { 
-//         //session,
-//         cities,
-//               user, 
-//               selects,
-//               services,
-//             },
-//     };
-//   }
 
 export default EditEscort;
