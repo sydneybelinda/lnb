@@ -16,7 +16,6 @@ const Links = (props) => {
 
 const siteLinks = props.links;
 
-console.log(siteLinks)
 
   return (
     <React.Fragment>

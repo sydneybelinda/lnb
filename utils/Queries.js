@@ -201,6 +201,19 @@ export const getAllEscorts = async (ctx) => {
     }
   };
 
+  export const deleteSiteLink = async (id) => {
+
+    const res = await fetch(`${API}/link/delete`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+
+  
+  return res;
+};
+
   export const deleteEscort = async (data) => {
 
     const res = await fetch(`${API}/escort/delete`, {
