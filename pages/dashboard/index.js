@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import TopHeader from "../../components/_App/TopHeader";
 import Navbar from "../../components/_App/Navbar";
 import Sidebar from "../../components/Dashboard/SideBar";
@@ -8,10 +8,28 @@ import AgencyEscorts from "../../components/Dashboard/AgencyEscorts";
 
 import Footer from "../../components/_App/Footer";
 
+
 const Dashboard = (props) => {
 
-  const escorts = props.escorts.rows;
+  const esc = props.escorts.rows;
   const user = props.user[0];
+
+  const [escorts, setEscorts] = useState(esc);
+
+
+
+
+  const getEscorts = async () => {
+
+    const es = await getAllAgencyEscorts()
+
+    setEscorts(es.rows)
+
+
+  }
+
+
+
 
   return (
     <React.Fragment>
@@ -49,7 +67,7 @@ const Dashboard = (props) => {
                             <hr />
                             <div className="row">
                               {escorts &&
-                                escorts.map((e) => <AgencyEscorts e={e} key={e.id} />)}
+                                escorts.map((e) => <AgencyEscorts e={e} key={e.id} getall={() => getEscorts()} />)}
                             </div>
 
                         

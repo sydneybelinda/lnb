@@ -201,33 +201,18 @@ export const getAllEscorts = async (ctx) => {
     }
   };
 
-  export const deleteSiteLink = async (id) => {
+  export const deleteEscort = async (data) => {
+
+    const res = await fetch(`${API}/escort/delete`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
 
   
-    try {
-      const response = await fetch(`${API}/link/delete`, {
-        method: "POST",
-  
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: id })
-      });
-      if (response.status === 200) {
-        // Router.push('/dashboard')
-        return { status: "Success" };
-      } else {
-        console.log("Delete failed.");
-        // https://github.com/developit/unfetch#caveats
-        let error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-    } catch (error) {
-      console.error(
-        "You have an error in your code or there are Network issues.",
-        error
-      );
-    }
-  };
+  return res;
+};
 
   export const uploadFile = async (files, username) => {
 
@@ -286,9 +271,34 @@ export const getAllEscorts = async (ctx) => {
       body: JSON.stringify({ data }),
     });
 
+    return res;
+  };
+
+    export const disableEscort = async (data) => {
+
+      const res = await fetch(`${API}/escort/disable`, {
+        method: "POST",
+  
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data }),
+      });
+
     
     return res;
   };
+
+  export const enableEscort = async (data) => {
+
+    const res = await fetch(`${API}/escort/enable`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
+
+  
+  return res;
+};
 
   export const updateEscortProfpic = async (data) => {
 

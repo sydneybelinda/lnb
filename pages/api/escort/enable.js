@@ -17,7 +17,7 @@ export default async (req, res) => {
             if (escort) {
                 try {
 
-              const updatedEscort = await db.escorts.update(data, {
+              const updatedEscort = await db.escorts.update({enabled: "True"}, {
                 where: {
                     username: data.username
                 }
@@ -44,6 +44,11 @@ export default async (req, res) => {
             }
              }
          }
+
+         else {
+            const error = "no username"
+            return res.status(500).send(error)
+        }
     }
 
 

@@ -9,7 +9,11 @@ export default async (req, res) => {
 
      escorts = await db.escorts.findAndCountAll({
 
-      order: [['id', 'DESC']],
+      order: [
+      //  ['id', 'DESC'],
+        ['enabled', 'DESC'],
+        ['firstName', 'ASC'],
+      ],
   
     })
 
