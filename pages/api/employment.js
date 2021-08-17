@@ -12,7 +12,21 @@ const transporter = {
     }
 }
 
-const mailer = nodemailer.createTransport(sgTransport(transporter));
+//const mailer = nodemailer.createTransport(sgTransport(transporter));
+
+
+
+const mailer = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    secure: process.env.MAIL_SECURE, // upgrade later with STARTTLS
+    auth: {
+      user: process.env.MAIL_EMP_USER,
+      pass: process.env.MAIL_EMP_PASS,
+    },
+  });
+
+  console.log(mailer)
 
 export default async (req, res) => {
     //console.log(req.body)
@@ -40,8 +54,8 @@ console.log(images)
     //console.log(txt);
 
     const data = {
-        to: 'lnbsydney@gmail.com',
-        from: 'employment@lnbsydneyescorts.com.au',
+        to: 'info@lnbsydneyescorts.com.au',
+        from: 'apply@lnbsydneyescorts.com.au',
         subject: `Late Night Babes Employment Form - From: ${name}`,
         text: text,
         html: `
