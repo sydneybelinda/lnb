@@ -27,7 +27,7 @@ export default async (req, res) => {
         to: 'info@lnbsydneyescorts.com.au',
         from: 'contact@lnbsydneyescorts.com.au',
         subject: `Late Night Babes Contact Form - From: ${name} | ${subject}`,
-        text: txt,
+        text: text,
         html: `
             <b>From:</b> ${name} <br /> 
             <b>Email:</b> ${email} <br /> 

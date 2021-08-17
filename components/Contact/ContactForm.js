@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-import baseUrl from "../../utils/baseUrl";
+import Config from "../../config";
 // import Image from "next/image";
 
 const alertContent = () => {
@@ -39,7 +39,7 @@ const ContactForm = () => {
   const onSubmit = async (e) => {
     // e.preventDefault();
     try {
-      const url = `${baseUrl}/api/contact`;
+      const url = `${Config.api}/contact`;
       const { name, email, number, subject, text } = contact;
       const payload = { name, email, number, subject, text };
       await axios.post(url, payload);
