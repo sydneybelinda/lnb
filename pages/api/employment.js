@@ -4,13 +4,7 @@ const nl2br = require('react-nl2br');
 import Config from "../../config"
 import * as apikey from "../../apikey"
 
-const transporter = {
-    auth: {
-        // Use SendGrid API key 
-      //  api_key: apikey
-      api_key: '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'
-    }
-}
+
 
 //const mailer = nodemailer.createTransport(sgTransport(transporter));
 
@@ -26,7 +20,7 @@ const mailer = nodemailer.createTransport({
     },
   });
 
-  console.log(mailer)
+
 
 export default async (req, res) => {
     //console.log(req.body)

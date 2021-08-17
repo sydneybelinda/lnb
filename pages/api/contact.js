@@ -2,14 +2,17 @@ import nodemailer from 'nodemailer';
 import sgTransport from 'nodemailer-sendgrid-transport';
 const nl2br = require('react-nl2br');
 
-const transporter = {
-    auth: {
-        // Use SendGrid API key 
-        api_key: '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'
-    }
-}
 
-const mailer = nodemailer.createTransport(sgTransport(transporter));
+
+const mailer = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    secure: process.env.MAIL_SECURE, // upgrade later with STARTTLS
+    auth: {
+      user: process.env.MAIL_CON_USER,
+      pass: process.env.MAIL_CON_PASS,
+    },
+  });
 
 export default async (req, res) => {
     //console.log(req.body)
