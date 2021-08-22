@@ -60,6 +60,7 @@ const Index = (props) => {
         <div className="main-links">
             <div className="container-fluid">
         <a href="https://www.eurogirlsescort.com" target="_blank" title="EuroGirlsEscort.com"><img src="https://www.eurogirlsescort.com/dist/images/banners/468X60.jpg" alt="EuroGirlsEscort.com" title="EuroGirlsEscort.com" /></a>
+        <h3><strong><a href="https://escortdirectory.tv"> EscortDirectory.TV - Escorts World Wide</a></strong></h3>
         </div>
         </div>
       </div>
