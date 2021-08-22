@@ -41,7 +41,9 @@ const services = await getServices();
 const s = await getAllServices();
 const locs = await getLocals();
 
-  if (!escort) {
+
+
+  if (!escort.escort) {
     return {
       notFound: true,
     }

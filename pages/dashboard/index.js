@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import TopHeader from "../../components/_App/TopHeader";
 import Navbar from "../../components/_App/Navbar";
 import Sidebar from "../../components/Dashboard/SideBar";
-import { signIn, signOut, getSession } from "next-auth/client";
 import { getAllAgencyEscorts, getUser } from "../../utils/Queries";
 import AgencyEscorts from "../../components/Dashboard/AgencyEscorts";
 import withSession from '../../lib/session'
