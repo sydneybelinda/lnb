@@ -36,20 +36,20 @@ const Index = (props) => {
         <div className="avail-section">
           <div className="container-fluid">
             <div className="title-section ptb-100">
-              <h2>
+              <div className="title-head">
                 <span className="fun">Availability</span> Sydney escorts
                 available today
-              </h2>
+              </div>
             </div>
           </div>
           <AvailPortfolio escorts={props.escorts} day={getToday().day} />
         </div>
         <div className="container-fluid">
           <div className="title-section ptb-100">
-            <h2>
+          <div className="title-head">
               <span className="fun">Our Fun and frendly</span> High class Sydney
               escorts
-            </h2>
+            </div>
           </div>
         </div>
         <Portfolio escorts={props.escorts} />

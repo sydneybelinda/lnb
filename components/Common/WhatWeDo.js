@@ -73,7 +73,7 @@ const WhatWeDo = () => {
           />
           </div>
 
-          <h2 className="pb-30 pt-30">About Late Night Babes Sydney escorts</h2>
+          <div className="title-head pb-30 pt-30">About Late Night Babes Sydney escorts</div>
           <p>
             Sydney itself is a major city, and the largest in Australia. If you
             are visiting from another part of the world - then you will find
@@ -148,7 +148,7 @@ const WhatWeDo = () => {
             alt="High class Sydney escort agency"
           /> */}
 
-          <h2 className="pt-30 pb-30">Our Sydney escort agency</h2>
+<div className="title-head pb-30 pt-30">Our Sydney escort agency</div>
           <p>
             We don't just look at this as a business, treat the ladies we work
             with like commodities, or our clients like chumps - The girls we
@@ -175,7 +175,7 @@ const WhatWeDo = () => {
             benefit any lady that appears to be drug addicted we will not work
             with and will encourage them to seek help
           </p>
-          <h2 className="pt-30 pb-30">Sydney private escorts</h2>
+          <div className="title-head pb-30 pt-30">Sydney private escorts</div>
           <p>
             Don't waste your time searching through backpage ads trying to find
             the perfect private escort, we have already done that for you! We
@@ -185,9 +185,9 @@ const WhatWeDo = () => {
             only beautiful on the outside, but beautiful on the inside too.
           </p>
 
-          <h2 className="pt-30 pb-30">
+          <div className="title-head pb-30 pt-30">
             Travelling around with your Sydney escort
-          </h2>
+          </div>
 
           <p>
             There is an underground heavy rail system that circles around Sydney
@@ -199,13 +199,7 @@ const WhatWeDo = () => {
           </p>
 
           <div className="about-img left-img">
-          {/* <Image
-            src="/images/about.webp"
-            alt="High class Sydney escort agency"
-            layout="responsive"
-            width="600"
-            height="611"
-          /> */}
+
                     <img
             src="/images/about.webp"
             alt="High class Sydney escort agency"
@@ -213,14 +207,7 @@ const WhatWeDo = () => {
           />
           </div>
 
-
-          {/* <img
-            className="about-img left-img"
-            src={Model4Img}
-            alt="High class Sydney escort agency"
-          /> */}
-
-<h2 className="pt-30 pb-30">Sydney Escort pricing</h2>
+          <div className="title-head pb-30 pt-30">Sydney Escort pricing</div>
             <p>
               You will find no hidden charges when booking one of our escorts in
               Sydney. The prices of our ladies start at $450 per hour - all
@@ -244,15 +231,15 @@ const WhatWeDo = () => {
               thing.
             </p>
 
-            <h2 className="pt-30 pb-30"> Sydney escort incall locations</h2>
+            <div className="title-head pb-30 pt-30"> Sydney escort incall locations</div>
 
 <p>   Most of our Sydney private escorts are located for incalls in Sydney CBD near Wynyard Station. They are also available for outcalls to your 4 or 5 star hotel room.
 </p>
-<h2 className="pt-30 pb-30">Paymnt Options</h2>
+<div className="title-head pb-30 pt-30">Paymnt Options</div>
 <p>
 We accept cash only.   We do NOT accept credit card or bank transfer.
 </p>
-<h2 className="pt-30 pb-30">Adult Webdesign / SEO</h2>
+<div className="title-head pb-30 pt-30">Adult Webdesign / SEO</div>
 <p>
    If you are looking for Website design, Computer / Server Support and Search Engine Optimisation - we use and recommend <a href="https://chicit.com.au">Chic IT</a> for all of our IT and computer related issues.
 </p>

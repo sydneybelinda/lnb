@@ -42,14 +42,6 @@ const MainBanner = () => {
                   backgroundSize: "cover",
                 }}
               ></div>
-              {/* <img src="/images/banner-img6.png" alt="image" /> */}
-              {/* <span className="sub-title">Digital Marketing</span>
-                            <h1>Boots Your Website Traffic</h1>
-                            <p>Get all kinds of hi-tech decesion making consulting services using Artificial Intelligence and Machine Learning from one umbrella.</p>
-
-                            <Link href="/about-us-1">
-                                <a className="default-btn">Learn More</a>
-                            </Link> */}
             </div>
 
 
