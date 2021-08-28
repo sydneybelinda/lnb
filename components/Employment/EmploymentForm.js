@@ -254,7 +254,7 @@ const EmploymentForm = () => {
                     else you might like to talk about :)
                     <br />
                     <br />
-                    Call us anytime for more information - 0491 973 448
+                    Call us anytime for more information - {config.phone}
                   </p>
                 </div>
               </div>

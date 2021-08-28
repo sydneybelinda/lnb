@@ -8,7 +8,7 @@ import Config from "../config";
 import { getAllServices, getLocals } from "../utils/Queries";
 
 
-const  phoneUrl = `+61${Config.phone.replace(/\s/g,"").substring(1)}`;
+const  phoneUrl = `tel:+61${Config.phone.replace(/\s/g,"").substring(1)}`;
 
 const Meta = {
     title: "Find our up to date contact details | Late Night Babes Sydney",
