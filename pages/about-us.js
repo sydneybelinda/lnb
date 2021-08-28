@@ -6,9 +6,9 @@ import TopHeader from "../components/_App/TopHeader";
 import { getAllServices, getLocals } from "../utils/Queries";
 
 const Meta = {
-  title: "Escort Availability - Escort Roster | Late Night Babes Sydney",
+  title: "About our Sydney Escort agency | Late Night Babes Sydney",
   description:
-    "Make an advance escort booking - Find the Availablility of your favourite LNB Sydney Escort.  This is our weekly escort roster and availability",
+    "More information about Late Night Babes Sydney including booking information, who we are and high class Sydney escort agency",
   page: "/about-us",
 };
 
