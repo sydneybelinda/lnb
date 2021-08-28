@@ -69,7 +69,9 @@ export async function getServerSideProps({ params }) {
   const locs = await getLocals();
   const loc = await getLocal(city);
 
-  if (!loc) {
+  console.log(loc)
+
+  if (loc.length < 1) {
     return {
       notFound: true,
     }

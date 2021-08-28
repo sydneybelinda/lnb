@@ -11,7 +11,7 @@ import {getEscort, getServices, getAllServices, getLocals, getAllEscorts} from "
 const Escort = (props) => {
 const e = props.escort.escort
 
-console.log(e)
+
 
   const Meta = {
     title: `${e.firstName} ${e.surname} - High Class Escort  | Late Night Babes Sydney`,
