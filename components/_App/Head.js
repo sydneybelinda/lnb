@@ -15,6 +15,7 @@ const Meta = (props) => {
       <meta name="og:title" property="og:title" content={m.title}></meta>
       <meta name="twitter:card" content={m.description}></meta>
       <link rel="canonical" href={Config.url + m.page}></link>
+      <meta name="ahrefs-site-verification" content="6eeecd821a1d0b728178759f53c7e9918f07a8cb4111c7741de48345acf22724"></meta>
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56311709-1"></script>
 
