@@ -59,6 +59,7 @@ const Index = (props) => {
         <Footer {...props} />
         <div className="main-links">
             <div className="container-fluid">
+              <a href="https://sydneylawsolutions.com.au">Lawyers Sydney</a> - <a href="https://hottofind.com">HotToFind USA</a> - <a href="https://au.hottofind.com">HotToFind Australia</a> - <a href="https://ca.hottofind.com">HotToFind Canada</a> - <a href="https://in.hottofind.com">HotToFind India</a> - <a href="https://eu.hottofind.com">HotToFind Europe</a> - <a href="https://uk.hottofind.com">HotToFind United Kingdom</a> - <a href="https://za.hottofind.com">HotToFind South Africa</a> - <a href="https://sg.hottofind.com">HotToFind Singapore</a> - <a href="https://sa.hottofind.com">HotToFind South America</a><br/>
         <a href="https://www.eurogirlsescort.com" target="_blank" title="EuroGirlsEscort.com"><img src="https://www.eurogirlsescort.com/dist/images/banners/468X60.jpg" alt="EuroGirlsEscort.com" title="EuroGirlsEscort.com" /></a>
         <h3><strong><a href="https://escortdirectory.tv"> EscortDirectory.TV - Escorts World Wide</a></strong></h3><a href="https://www.world-escort-guide.com/" title="World Escort Guide" target="_blank">World Escort Guide</a>
         </div>
