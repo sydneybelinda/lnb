@@ -17,7 +17,7 @@ const Local = (props) => {
     title: `${loc.key1} - ${loc.key2} | Late Night Babes Sydney`,
     description:
       "Make an advance escort booking - Find the Availablility of your favourite LNB Sydney Escort.  This is our weekly escort roster and availability",
-    page: "/about-us",
+    page: `/local/${props.city}`,
   };
   
 
@@ -79,7 +79,8 @@ export async function getServerSideProps({ params }) {
     props: { 
         services,
         locs,
-        loc
+        loc,
+        city: params.city
     }, 
   }
 }
