@@ -17,7 +17,7 @@ const Img = ({username, file}) => {
   
   
     const onErrorSrc = () => {
-      setSrc = '/userdata/photo_coming_soon.jpg'
+      setSrc('/userdata/photo_coming_soon.jpg')
     }
   
     return (
@@ -31,6 +31,7 @@ const Img = ({username, file}) => {
         quality={75}
       /> */}
         <img
+        className='gal-img'
           src={src}
           onError={onErrorSrc}
           alt={file}

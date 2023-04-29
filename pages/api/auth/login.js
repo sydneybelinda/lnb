@@ -89,7 +89,7 @@ async function handler(req, res) {
 }
 
 export default withIronSession(handler, {
-  password: process.env.SECRET_COOKIE_PASSWORD,
+  password: "Foobar",
   cookieName: "lnb",
   // if your localhost is served on http:// then disable the secure flag
   cookieOptions: {

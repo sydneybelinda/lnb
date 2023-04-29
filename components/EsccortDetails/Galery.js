@@ -62,7 +62,7 @@ const Gallery = (props) => {
 
                                       
                                    >
-                                       <Img username={file.user} file={file.file} />
+                                       <Img  username={file.user} file={file.file} />
                                       
                                    </div>
                                </div>
